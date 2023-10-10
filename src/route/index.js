@@ -139,59 +139,49 @@ router.post('/user-update', function (req, res) {
 
 class Product {
   static #list = []
-  id
-
   constructor(name, price, description) {
     this.name = name
     this.price = price
     this.description = description
-    this.createDate = new Date().toISOString()
-    this.id = Math.floor(Math.random() * 90000) + 10000
-    Product.#list.push(this)
+    this.id = Math.floor(Math.random() * 100000)
+    this.createDate = () => {
+      this.date = new Date().toISOString()
+    }
   }
-
-  static getList = () => Product.#list
-
+  static getList = () => this.#list
+  checkId = (id) => this.id === id
   static add = (product) => {
-    Product.#list.push(product)
+    this.#list.push(product)
   }
-
-  static getById = (id) => {
-    Product.#list.find((product) => product.id === id)
-  }
-
-  static updateById = (id, data) => {
-    const product = this.getById(id)
-    if (product) {
-      this.update(product, data)
-      return true
-    } else {
-      return false
-    }
-  }
-
-  static update = (
-    product,
-    { name, price, description },
-  ) => {
-    if (name) {
-      product.name = name
-    } else if (price) {
-      product.price = price
-    } else if (description) {
-      product.description = description
-    }
-  }
+  static getById = (id) =>
+    this.#list.find((product) => product.id === id)
 
   static deleteById = (id) => {
-    const index = Product.#list.findIndex(
+    const index = this.#list.findIndex(
       (product) => product.id === id,
     )
     if (index !== -1) {
-      Product.#list.splice(index, 1)
+      this.#list.splice(index, 1)
       return true
     } else {
       return false
+    }
+  }
+  static updateById = (id, data) => {
+    const product = this.getById(id)
+    const { name } = data
+    if (product) {
+      if (name) {
+        product.name = name
+      }
+      return true
+    } else {
+      return false
+    }
+  }
+  static update = (name, { product }) => {
+    if (name) {
+      product.name = name
     }
   }
 }
