@@ -1,17 +1,28 @@
-/* Error: Can't find stylesheet to import.
- *   ,
- * 1 | @use '../../lib/servise.scss' as s;
- *   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
- *   '
- *   src\container\alert\style.scss 1:1  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @use '../../lib/servise.scss' as s;\d\a   \2502  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   src\\container\\alert\\style.scss 1:1  root stylesheet";
+.form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  gap: 32px;
+  border: 1px solid #ddd;
+  margin: 8px;
 }
+.form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.form__title {
+  font-size: 20px;
+}
+.form__button {
+  color: white;
+  background-color: blue;
+  border: 1px solid #ddd;
+  padding: 8px 40px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=style.css.map */
