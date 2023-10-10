@@ -8,22 +8,23 @@
   <h1 class='blue-color page__title'>Список товарів</h1>
 
   <div class='card__block'>
-    {{#each productList}}
-      {{!-- {{> product-card}} --}}
-      <div class='card'>
-        <div class='card__title'>{{name}}</div>
-        <div class='card__description'>{{description}}</div>
-        <div class='card__id'>ID: {{id}}</div>
-        <div class='card__footer'>
-          <span>{{price}}</span>
-          <a
-            href='/product-edit?id={{id}}'
-            class='card__button'
-          >
-            Редагувати</a>
+    {{#with data.products}}
+      {{#each list}}
+        <div class='product__card'>
+          <div class='product__name'>{{name}}</div>
+          <div
+            class='product__description'
+          >{{description}}</div>
+          <div class='product__id'>ID: {{id}}</div>
+          <div class='product__row'>
+            <div class='product__price'>{{price}}$</div>
+            <button class='product__edit'><a
+                href='/product-edit?id={{id}}'
+              >Редагувати</a></button>
+          </div>
         </div>
-      </div>
-    {{/each}}
+      {{/each}}
+    {{/with}}
   </div>
 
 </main>
