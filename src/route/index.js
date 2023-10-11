@@ -239,7 +239,7 @@ router.get('/product-edit', function (req, res) {
   const product = Product.getById(Number(id))
   console.log(product)
   if (product) {
-    return res.render('/product-edit', {
+    return res.render('product-edit', {
       style: 'product-edit',
       data: {
         name: product.name,
@@ -249,8 +249,8 @@ router.get('/product-edit', function (req, res) {
       },
     })
   } else {
-    return res.render('product-alert', {
-      style: 'product-alert',
+    return res.render('alert', {
+      style: 'alert',
       info: 'Продукту за таким ID не знайдено',
     })
   }
