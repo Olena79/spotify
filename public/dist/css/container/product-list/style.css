@@ -62,4 +62,13 @@
   color: rgb(55, 55, 251);
 }
 
+.link {
+  text-decoration: none;
+  color: white;
+  margin: 12px;
+  padding: 6px 16px;
+  border-radius: 8px;
+  background-color: blue;
+}
+
 /*# sourceMappingURL=style.css.map */
