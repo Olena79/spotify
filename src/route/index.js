@@ -144,15 +144,16 @@ class Product {
     this.price = price
     this.description = description
     this.id = Math.floor(Math.random() * 100000)
-    this.createDate = () => {
-      this.date = new Date().toISOString()
-    }
+    this.createDate = new Date().toISOString()
   }
   static getList = () => this.#list
+
   checkId = (id) => this.id === id
+
   static add = (product) => {
     this.#list.push(product)
   }
+
   static getById = (id) =>
     this.#list.find((product) => product.id === id)
 
@@ -229,6 +230,57 @@ router.get('/product-list', function (req, res) {
       },
     },
   })
+})
+
+// ================================================================
+
+router.get('/product-edit', function (req, res) {
+  const { id } = req.query
+  const product = Product.getById(Number(id))
+  console.log(product)
+  if (product) {
+    return res.render('/product-edit', {
+      style: 'product-edit',
+      data: {
+        name: product.name,
+        price: product.price,
+        id: product.id,
+        description: product.description,
+      },
+    })
+  } else {
+    return res.render('product-alert', {
+      style: 'product-alert',
+      info: 'Продукту за таким ID не знайдено',
+    })
+  }
+})
+
+// ================================================================
+
+router.post('/product-edit', function (req, res) {
+  const { name, price, description, id } = req.body
+
+  const product = Product.updateById(Number(id), {
+    name,
+    price,
+    description,
+  })
+
+  console.log(id)
+  console.log(product)
+
+  if (product) {
+    res.render('alert', {
+      style: 'alert',
+      info: 'Інформація про товар оновлена',
+    })
+  } else {
+    res.render('alert', {
+      style: 'alert',
+      info: 'Сталася помилка',
+    })
+  }
 })
 
 // ================================================================
