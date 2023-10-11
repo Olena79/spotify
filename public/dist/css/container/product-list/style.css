@@ -13,7 +13,7 @@
   gap: 20px 8px;
 }
 
-.card {
+.product__card {
   border: 1px solid #ddd;
   border-radius: 6px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
@@ -22,27 +22,39 @@
   flex-direction: column;
   gap: 16px;
 }
-.card__title {
+
+.product__name {
   font-size: 18px;
 }
-.card__description {
+
+.product__description {
   font-size: 14px;
 }
-.card__id {
+
+.product__id {
   font-size: 10px;
   color: rgb(161, 162, 162);
 }
-.card__footer {
+
+.product__row {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
-.card__button {
+
+.product__price {
+  font-size: 14px;
+}
+
+.product__button {
   text-decoration: none;
 }
-.card__button:hover {
+
+.product__button:hover {
   opacity: 0.7;
 }
-.card__button:active {
+
+.product__button:active {
   color: rgb(0, 0, 168);
 }
 
