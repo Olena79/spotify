@@ -43,7 +43,16 @@
   background-color: blue;
   border: 1px solid #ddd;
   padding: 8px;
-  border-radius: 5px;
+  border-radius: 8px;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+  margin: 12px;
+  padding: 6px 16px;
+  border-radius: 8px;
+  background-color: blue;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -285,5 +285,25 @@ router.post('/product-edit', function (req, res) {
 
 // ================================================================
 
+router.get('/product-delete', function (req, res) {
+  const { id } = req.query
+
+  const product = Product.deleteById(Number(id))
+
+  if (product) {
+    res.render('alert', {
+      style: 'alert',
+      info: 'Товар видалений',
+    })
+  } else {
+    res.render('alert', {
+      style: 'alert',
+      info: 'Сталася помилка',
+    })
+  }
+})
+
+// ================================================================
+
 // Підключаємо роутер до бек-енду
 module.exports = router

@@ -10,7 +10,7 @@
             товару</label>
           <input
             type='text'
-            name='{{name}}'
+            name='name'
             class='card__input'
           />
         </div>
@@ -22,7 +22,7 @@
           >Ціна</label>
           <input
             type='number'
-            name='{{price}}'
+            name='price'
             class='card__input'
           />
         </div>
@@ -31,7 +31,7 @@
           <label type='text' class='card__label'>ID</label>
           <input
             type='text'
-            name='{{id}}'
+            name='id'
             class='card__input'
           />
         </div>
@@ -50,11 +50,13 @@
 
       <div class='buttons'>
         <a
-          href='/product-edit'
+          href='/product-list?id={{id}}'
           class='card__button blue-color'
         >Зберегти оновлення</a>
-        <a href='#' class='card__button red-color'>Видалити
-          товар</a>
+        <a
+          href='/product-delete?id={{id}}'
+          class='card__button red-color'
+        >Видалити товар</a>
 
       </div>
     </div>
