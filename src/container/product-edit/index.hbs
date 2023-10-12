@@ -41,6 +41,7 @@
       <div class='card__field'>
         <div class='card__textarea'>Короткий опис товару</div>
         <textarea
+          name='description'
           class='card__input'
           aria-label='With textarea'
         ></textarea>
@@ -49,10 +50,8 @@
       </div>
 
       <div class='buttons'>
-        <a
-          href='/product-list?id={{id}}'
-          class='card__button blue-color'
-        >Зберегти оновлення</a>
+        <button class='card__button blue-color'>Зберегти
+          оновлення</button>
         <a
           href='/product-delete?id={{id}}'
           class='card__button red-color'
