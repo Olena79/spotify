@@ -170,10 +170,12 @@ class Product {
   }
   static updateById = (id, data) => {
     const product = this.getById(id)
-    const { name } = data
+    const { name, price, description } = data
     if (product) {
-      if (name) {
+      if ((name, price, description)) {
         product.name = name
+        product.price = price
+        product.description = description
       }
       return true
     } else {
