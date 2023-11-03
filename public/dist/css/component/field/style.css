@@ -1,0 +1,15 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+.field__label {
+  font-size: 14px;
+}
+.field__input {
+  border: 1px solid rgb(188, 188, 188);
+  padding: 8px;
+}
+
+/*# sourceMappingURL=style.css.map */
