@@ -1,0 +1,58 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 32px;
+}
+.form__title {
+  font-size: 20px;
+  font-weight: bold;
+  padding-bottom: 4px;
+  color: rgb(62, 62, 247);
+}
+.form__content {
+  display: grid;
+  gap: 24px;
+  border: 1px solid #ddd;
+  padding: 24px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+.form__block {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.form__label {
+  font-size: 12px;
+}
+.form__labelShadow {
+  font-size: 12px;
+  color: gray;
+}
+.form__input {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+.form__button {
+  color: white;
+  background-color: blue;
+  border: 1px solid #ddd;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+  margin: 12px;
+  padding: 6px 16px;
+  border-radius: 8px;
+  background-color: blue;
+}
+
+/*# sourceMappingURL=style.css.map */
