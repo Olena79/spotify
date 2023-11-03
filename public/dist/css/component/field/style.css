@@ -8,8 +8,15 @@
   font-size: 14px;
 }
 .field__input {
-  border: 1px solid rgb(188, 188, 188);
+  border: 1px solid rgb(215, 215, 215);
   padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.field--disabled {
+  position: absolute;
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

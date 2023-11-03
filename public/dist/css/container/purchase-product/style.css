@@ -6,8 +6,8 @@
 .heading__title {
   font-size: 30px;
   font-weight: bold;
-  color: #000;
-  border-bottom: 1px solid rgb(222, 220, 220);
+  color: blue;
+  margin-bottom: 12px;
 }
 .heading__info {
   font-size: 16px;
@@ -80,8 +80,27 @@
   font-size: 14px;
 }
 .field__input {
-  border: 1px solid rgb(188, 188, 188);
+  border: 1px solid rgb(215, 215, 215);
   padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.field--disabled {
+  position: absolute;
+  display: none;
+}
+
+.button {
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+.button:hover {
+  opacity: 0.7;
 }
 
 main {
