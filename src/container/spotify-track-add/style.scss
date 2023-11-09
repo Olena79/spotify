@@ -1,0 +1,78 @@
+@use '../../lib/service.scss' as s;
+
+// @use '../../lib/spotify.scss' as spotify;
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: opasity 0.6s;
+
+    &:hover {
+        opacity: 0.6;
+    }
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    padding: s.space(6) s.space(2);
+
+    background-color: s.color(dark);
+    color: s.color(light);
+
+    height: fit-content;
+
+    &__content {
+        width: 100%;
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        gap: s.space(15);
+    }
+}
+
+.title {
+    font-size: 24px;
+    padding-bottom: s.space(2); 
+}
+
+.title--center {
+    text-align: center;
+    padding-bottom: s.space(15);
+}
+
+.track {
+    display: grid;
+    grid-template-columns: 92px 1fr 42px;
+    align-items: center;
+    gap: s.space(7);
+
+    &__list {
+        display: grid;
+        gap: s.space(7);
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: s.space(10);
+        padding-bottom: 8px;
+    }
+
+    &__name {
+        font-size: 24px;
+        color: s.color(light);
+        
+    }
+}
+
+.choose {
+    display: grid;
+    grid-template-columns: 92px 1fr;
+    align-items: center;
+    gap: s.space(6);
+    color: s.color(light);
+    font-size: 18px;
+}
+

@@ -1,0 +1,40 @@
+<main class='main'>
+  {{#with data}}
+  <div class='main__content'>
+    <h1 class='title title--center'>{{name}}</h1>
+
+    <a href='/spotify-track-add?playlistId={{playlistId}}' class='add-button'>
+      <img
+        src='/svg/add_button.svg'
+        class='choose__image'
+      />
+      Додати до плейліста
+    </a>
+
+    <ul class='track-list'>
+      {{#each tracks}}
+      <li class='track'>
+        <img
+          src='https://picsum.photos/70/70'
+          class='choose__image'
+        />
+        <div class="track__content">
+          <strong class="track__name">{{name}}</strong>
+          <em class="track__author">{{author}}</em>
+        </div>
+        <a href="/spotify-track-delete?playlistId={{../playlistId}}&trackId={{id}}">
+        <img src="/svg/delete_button.svg"></a>
+      </li>
+      {{/each}}
+    </ul>
+    <form method='POST' action='/spotify-library' class='form' >
+      <input type="hidden" name="playlistId" value="{{playlistId}}">
+
+      <a href="/spotify-library?playlistId={{playlistId}}"  class="button__submit">
+          Додати плейліст до бібліотеки
+      </a>
+
+    </form>
+  </div>
+  {{/with}}
+</main>

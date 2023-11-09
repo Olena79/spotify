@@ -1,0 +1,96 @@
+.main {
+  display: flex;
+  justify-content: center;
+  padding: 24px 8px;
+  background-color: #121212;
+  color: #ddd;
+  height: fit-content;
+  min-height: 100%;
+}
+.main__content {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.form {
+  display: grid;
+  background-color: rgb(60, 60, 60);
+  padding: 8px 32px;
+  border-radius: 8px;
+  grid-template-columns: 56px 1fr auto;
+  gap: 32px;
+  color: #ddd;
+  font-size: 24px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search__button {
+  color: #ddd;
+  transition: opasity 0.6s;
+}
+.search__button:hover {
+  opacity: 0.6;
+}
+
+.title {
+  font-size: 24px;
+  padding-bottom: 8px;
+}
+
+.playlist {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 28px;
+  align-items: center;
+}
+.playlist__list {
+  display: grid;
+  gap: 28px;
+}
+.playlist__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+.playlist__name {
+  font-size: 24px;
+  color: #ddd;
+}
+.playlist__amount {
+  font-size: 16px;
+  color: gray;
+}
+
+.add-button {
+  position: relative;
+  text-decoration: none;
+}
+
+.add-button::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.add-button:hover::before {
+  opacity: 1;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,80 @@
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: opasity 0.6s;
+}
+a:hover {
+  opacity: 0.6;
+}
+
+.button__submit {
+  color: #ddd;
+  background-color: rgb(40, 40, 40);
+  margin-top: 30px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: opacity 0.6s;
+}
+.button__submit:hover {
+  opacity: 0.6;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  padding: 24px 8px;
+  background-color: #121212;
+  color: #ddd;
+  height: fit-content;
+  min-height: 100%;
+}
+main__content {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.title {
+  font-size: 24px;
+  padding-bottom: 8px;
+}
+
+.title--center {
+  text-align: center;
+  padding-bottom: 60px;
+}
+
+.track {
+  display: grid;
+  grid-template-columns: 92px 1fr 42px;
+  align-items: center;
+  gap: 15px;
+}
+.track__list {
+  display: grid;
+  gap: 28px;
+}
+.track__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  padding-bottom: 8px;
+}
+.track__name {
+  font-size: 24px;
+  color: #ddd;
+}
+
+.choose {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  align-items: center;
+  gap: 24px;
+  color: #ddd;
+  font-size: 18px;
+}
+
+/*# sourceMappingURL=style.css.map */
