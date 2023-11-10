@@ -7,15 +7,16 @@ a:hover {
   opacity: 0.6;
 }
 
-main {
+.main {
   display: flex;
   justify-content: center;
   padding: 24px 8px;
   background-color: #121212;
   color: #ddd;
   height: fit-content;
+  min-height: 100%;
 }
-main__content {
+.main__content {
   width: 100%;
   max-width: 600px;
   display: flex;
@@ -33,21 +34,22 @@ main__content {
   padding-bottom: 60px;
 }
 
+.track-list {
+  display: grid;
+  gap: 28px;
+}
+
 .track {
   display: grid;
   grid-template-columns: 92px 1fr 42px;
   align-items: center;
   gap: 28px;
 }
-.track__list {
-  display: grid;
-  gap: 28px;
-}
 .track__content {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 40px;
+  gap: 4px;
   padding-bottom: 8px;
 }
 .track__name {

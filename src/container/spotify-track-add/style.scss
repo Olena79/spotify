@@ -12,7 +12,7 @@ a {
     }
 }
 
-main {
+.main {
     display: flex;
     justify-content: center;
     padding: s.space(6) s.space(2);
@@ -21,6 +21,7 @@ main {
     color: s.color(light);
 
     height: fit-content;
+    min-height: 100%;
 
     &__content {
         width: 100%;
@@ -41,22 +42,22 @@ main {
     padding-bottom: s.space(15);
 }
 
+.track-list {
+    display: grid;
+    gap: s.space(7);
+}
+
 .track {
     display: grid;
     grid-template-columns: 92px 1fr 42px;
     align-items: center;
     gap: s.space(7);
 
-    &__list {
-        display: grid;
-        gap: s.space(7);
-    }
-
     &__content {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        gap: s.space(10);
+        gap: s.space(1);
         padding-bottom: 8px;
     }
 

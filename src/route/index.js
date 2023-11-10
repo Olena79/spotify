@@ -118,7 +118,7 @@ class Playlist {
 
   // Метод для отримання всього списку плейлистів
   static getList() {
-    return this.#list.reverse()
+    return this.#list
   }
 
   // Метод для отримання 3х рандомних трекiв
@@ -169,40 +169,47 @@ Playlist.makeMix(Playlist.create('Для відпочинку'))
 
 // ================================================================
 
-class Library {
-  static #list = []
-
-  constructor(name, playlist, playlistId, tracksCount) {
-    this.name = name
-    this.playlist = playlist
-    this.playlistId = playlistId
-    this.tracksCount = tracksCount
-  }
-
-  static addPlaylist(playlistId) {
-    const playlistAdd = Playlist.getById(playlistId)
-    this.#list.push(playlistAdd)
-    return playlistAdd
-  }
-
-  static getList() {
-    return this.#list.reverse()
-  }
-
-  deletePlaylistById(playlistId) {
-    this.#list = this.#list.filter(
-      (playlist) => playlist.id !== playlistId,
-    )
-  }
-}
-
-// ================================================================
-
 router.get('/', function (req, res) {
+  allTracks = Track.getList()
+
+  const allPlaylists = Playlist.getList()
+
+  const imgs = {
+    img1: '/img/firstPlaylist.png',
+    img2: '/img/secondPlaylist.png',
+    img3: '/img/thirdPlaylist.png',
+    img4: '/img/forthPlaylist.png',
+  }
+
+  let playlistCount = 0
+
+  const chooseImg = allPlaylists.map((playlist) => {
+    playlistCount++
+
+    if (playlistCount === 1) {
+      playlist.image = imgs.img1
+    } else if (playlistCount === 2) {
+      playlist.image = imgs.img2
+    } else if (playlistCount === 3) {
+      playlist.image = imgs.img3
+    } else if (playlistCount === 4) {
+      playlist.image = imgs.img4
+    } else {
+      playlist.image = 'https://picsum.photos/345/345'
+    }
+    return playlist, playlistCount
+  })
+
   res.render('index', {
     style: 'index',
 
-    data: {},
+    data: {
+      list: allPlaylists.map(({ tracks, ...rest }) => ({
+        ...rest,
+        amount: tracks.length,
+      })),
+      image: chooseImg,
+    },
   })
 })
 
@@ -344,15 +351,6 @@ router.get('/spotify-track-delete', function (req, res) {
 
   const playlist = Playlist.getById(playlistId)
 
-  console.log(
-    'playlistId:',
-    playlistId,
-    'trackId:',
-    trackId,
-    'playlist:',
-    playlist,
-  )
-
   if (!playlist) {
     return res.render('alert', {
       style: 'alert',
@@ -452,69 +450,6 @@ router.post('/spotify-track-add', function (req, res) {
 
 // ================================================================
 
-router.get('/spotify-library', function (req, res) {
-  const playlistId = Number(req.query.playlistId)
-  const playlist = Playlist.getById(playlistId)
-
-  console.log(
-    'playlistId:',
-    playlistId,
-    'playlist:',
-    playlist,
-  )
-
-  const add = Library.addPlaylist(playlistId)
-
-  const playlists = Library.getList()
-
-  // let playlistCount = 0
-
-  // const imgs = {
-  //   img1: '/img/firstPlaylist.png',
-  //   img2: '/img/firstPlaylist.png',
-  //   img3: '/img/firstPlaylist.png',
-  //   img4: '/img/firstPlaylist.png',
-  // }
-
-  // const chooseImg = playlists.map((playlist) => {
-  //   playlistCount++
-
-  //   if (playlistCount === 1) {
-  //     playlist.image = imgs.img1
-  //   } else if (playlistCount === 2) {
-  //     playlist.image = imgs.img2
-  //   } else if (playlistCount === 3) {
-  //     playlist.image = imgs.img3
-  //   } else if (playlistCount === 4) {
-  //     playlist.image = imgs.img4
-  //   } else {
-  //     playlist.image = 'https://picsum.photos/345/345'
-  //   }
-  //   return playlistCount
-  // })
-
-  console.log(
-    'playlistId:',
-    playlistId,
-    'playlists:',
-    playlists,
-  )
-
-  res.render('spotify-library', {
-    style: 'spotify-library',
-
-    data: {
-      playlistId: playlist.id,
-      tracksCount: playlist.tracks.length,
-      name: playlist.name,
-      list: Library.getList(),
-      // image: chooseImg,
-    },
-  })
-})
-
-// ================================================================
-
 router.get('/spotify-search', function (req, res) {
   const value = ''
   const list = Playlist.findListByValue(value)
@@ -552,40 +487,6 @@ router.post('/spotify-search', function (req, res) {
     },
   })
 })
-
-// ================================================================
-
-// router.get('/spotify-library-delete', function (req, res) {
-//   const playlistId = Number(req.query.playlistId)
-
-//   const playlist = Playlist.getById(playlistId)
-
-//   console.log('playlistId:', playlistId)
-
-//   if (!playlist) {
-//     return res.render('alert', {
-//       style: 'alert',
-
-//       data: {
-//         message: 'Помилка',
-//         info: 'Такого плейліста не знайдено',
-//         link: `/spotify-playlist?id=${playlistId}`,
-//       },
-//     })
-//   }
-
-//   playlist.deletePlaylistById(playlistId)
-
-//   const playlists = Library.getList()
-
-//   res.render('spotify-library', {
-//     style: 'spotify-library',
-
-//     data: {
-//       list: playlists,
-//     },
-//   })
-// })
 
 // ================================================================
 
